@@ -7,7 +7,7 @@
 
 <img width="447" alt="screen1" src="https://user-images.githubusercontent.com/97599612/180431513-30a923fc-48ce-4306-a2f7-bd4a9aee4052.png">
 
-* Full program code with comments:
+* Full program code with comments: :paperclip:
 ```
 import cv2
  
