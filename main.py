@@ -35,12 +35,12 @@ while success:  # if success == True
         cv2.imwrite('rscat.jpg', place)  # Saving the image
         rscat_width = rscat.shape[1]  # width of resized cat's face in pixels
         rscat_height = rscat.shape[0]
-        # Iterate through catface.png to remove white pixels
+        # Iterate through catface.png to remove green pixels
         for i in range(rscat_width):
             for j in range(rscat_height):
-                pixel = rscat[j, i]  # Extracting each pixel in the cat
+                pixel = rscat[j, i]  # Extracting each pixel in the cat image
                 # print(type(pixel))  # Pixel is a 'numpy.ndarray' class
-                if np.any(pixel == [79, 248, 116]):  # If current pixel is a white pixel
+                if np.any(pixel == [79, 248, 116]):  # If current pixel is a green pixel
                     rscat[j, i] = place[j, i]
         # blend = cv2.addWeighted(place, 0, rscat, 1,0)  # Adding/blending two images
         cv2.imwrite("fcat.jpg", rscat)  # Saving the image
