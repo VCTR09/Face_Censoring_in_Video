@@ -3,12 +3,15 @@
 
 
 import cv2
+import numpy as np
  
 # Load the video
-video = cv2.VideoCapture("IMG_4909.mov")
+video = cv2.VideoCapture("smile.mp4")
  
 # Load the cat face image in color
 cat = cv2.imread("catface.png", 1)
+
+# print(cat[40, 40])  # Know the value of white pixels to remove them       
  
 # Get the first frame and the width and height of the video
 success, frame = video.read()  # Read the first frame of the video to check if it's read correctly
@@ -30,9 +33,18 @@ while success:  # if success == True
         rscat = cv2.resize(cat, (w, h)) # Resize cat's face so it's the same size with the rectangle around the face
         place = frame[y:y+h, x:x+w]  # Store in a variable the particular slice of the current frame where the face is
         cv2.imwrite('rscat.jpg', place)  # Saving the image
-        blend = cv2.addWeighted(place, 0, rscat, 1,0)  # Adding/blending two images
-        cv2.imwrite("fcat.jpg", blend)  # Saving the image
-        frame[y:y+h, x:x+w] = blend
+        rscat_width = rscat.shape[1]  # width of resized cat's face in pixels
+        rscat_height = rscat.shape[0]
+        # Iterate through catface.png to remove white pixels
+        for i in range(rscat_width):
+            for j in range(rscat_height):
+                pixel = rscat[j, i]  # Extracting each pixel in the cat
+                # print(type(pixel))  # Pixel is a 'numpy.ndarray' class
+                if np.any(pixel == [79, 248, 116]):  # If current pixel is a white pixel
+                    rscat[j, i] = place[j, i]
+        # blend = cv2.addWeighted(place, 0, rscat, 1,0)  # Adding/blending two images
+        cv2.imwrite("fcat.jpg", rscat)  # Saving the image
+        frame[y:y+h, x:x+w] = rscat
     output.write(frame)  # Write the modified frame into the output video object
     success, frame = video.read()  # Go to other frames (next after the first one)
     count += 1

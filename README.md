@@ -5,7 +5,8 @@
 * The program overlays an image (e.g., a cat face on top of the human face).
 
 
-<img width="447" alt="screen1" src="https://user-images.githubusercontent.com/97599612/180431513-30a923fc-48ce-4306-a2f7-bd4a9aee4052.png">
+<img width="544" alt="screen3" src="https://user-images.githubusercontent.com/97599612/180605800-328fe6b5-5d95-42da-aaab-7ff1b98acbd9.png">
+
 
 * Full program code with comments: :paperclip:
 ```
