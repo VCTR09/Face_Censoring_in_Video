@@ -5,7 +5,7 @@
 * The program overlays an image (e.g., a cat face on top of the human face).
 
 
-<img width="544" alt="screen3" src="https://user-images.githubusercontent.com/97599612/180605800-328fe6b5-5d95-42da-aaab-7ff1b98acbd9.png">
+<img width="633" alt="screen1" src="https://user-images.githubusercontent.com/97599612/180635961-6d719f79-02cd-4034-995e-eb821d5a8b3c.png">
 
 
 * Full program code with comments: :paperclip:
@@ -19,7 +19,7 @@ video = cv2.VideoCapture("smile.mp4")
 # Load the cat face image in color
 cat = cv2.imread("catface.png", 1)
 
-# print(cat[40, 40])  # Know the value of white pixels to remove them       
+# print(cat[40, 40])  # Know the value of green pixels to remove them       
  
 # Get the first frame and the width and height of the video
 success, frame = video.read()  # Read the first frame of the video to check if it's read correctly
